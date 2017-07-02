@@ -3,6 +3,7 @@ import {View} from 'react-native'
 import * as firebase from 'firebase'
 
 import Card from '../components/card'
+import SimpleScroller from '../components/simpleScroller'
 
 export default class Home extends Component {
 
@@ -26,7 +27,7 @@ export default class Home extends Component {
     this.setState({jobIndex: this.state.jobIndex + 1})
   }
 
-  render() {
+  cardStack = () => {
     const {jobIndex} = this.state
     return (
       <View style={{flex:1}}>
@@ -40,6 +41,17 @@ export default class Home extends Component {
           )
         })}
       </View>
+    )
+  }
+
+  render() {
+    return (
+      <SimpleScroller
+        screens={[
+          this.cardStack(),
+          <View style={{flex:1, backgroundColor:'lightgrey'}} />,
+        ]}
+      />
     )
   }
 }

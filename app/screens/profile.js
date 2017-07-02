@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {View} from 'react-native'
 import * as firebase from 'firebase'
-
 import Card from '../components/card'
 
 export default class Profile extends Component {
